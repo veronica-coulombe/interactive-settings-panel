@@ -1,0 +1,106 @@
+@import url("https://fonts.cdfonts.com/css/gotham-rounded");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gotham Rounded", sans-serif;
+} 
+
+:root {
+    --primary-bg: #87a5ce;
+}
+
+.settings-panel {
+    --panel-bg: #ffffff;
+    --heading-color: #525a5f;
+    --settings-info-color: #747d83;
+
+    --checkbox-bg-unchecked: #d8d8d8;
+    --checkbox-bg-checked: var(--primary-bg);
+    --checkbox-switch-color: #ffffff;
+}
+
+.settings-panel.dark {
+    --panel-bg: #46535a;
+    --heading-color: #e5ecf0;
+    --settings-info-color: #e5ecf0;
+
+    --checkbox-bg-unchecked: #677176;
+    --checkbox-bg-checked: var(--primary-bg);
+    --checkbox-switch-color: #46535a;
+}
+
+body {
+    background-color: var(--primary-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.settings-panel {
+    background-color: var(--panel-bg);
+    padding: 2rem;
+    width: 80%;
+    max-width: 550px;
+    border-radius: 1rem;
+    box-shadow: 0 12px 12px rgba(black, 0.15);
+    transition: background-color .3s ease;
+}
+
+header {
+    color: var(--heading-color);
+    margin-bottom: 2rem;
+    transition: color .3s ease;
+}
+
+.setting {
+    margin: 2rem auto;
+    color: var(--settings-info-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color .3s ease;
+}
+
+label {
+    display: block;
+    width: 80%;
+}
+
+span {
+    display: block;
+}
+
+input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 45px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: var(--checkbox-bg-unchecked);
+    position: relative;
+    transition: background-color .3s ease;
+}
+
+input::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: var(--checkbox-switch-color);
+    transition: left .3s ease, background-color .3s ease;
+}
+
+input:checked {
+    background-color: var(--checkbox-bg-checked);
+}
+
+input:checked::after {
+    left: 70%;
+}
